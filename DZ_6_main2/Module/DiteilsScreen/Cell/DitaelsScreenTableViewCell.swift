@@ -11,8 +11,6 @@ final class DitaelsScreenTableViewCell: UITableViewCell {
     
     
     private lazy var viewPhoto: UIView = {
-        $0.backgroundColor = .red
-        $0.clipsToBounds = true
         return $0
     }(UIView(frame: bounds))
     
@@ -20,9 +18,9 @@ final class DitaelsScreenTableViewCell: UITableViewCell {
         $0.axis = .vertical
         $0.alignment = .center
         $0.spacing = 25
-        $0.distribution = .equalCentering
+        $0.distribution = .fillEqually
         return $0
-    }(UIStackView(frame: CGRect(x: 30, y: 44, width: viewPhoto.bounds.width - 60, height: 100)))
+    }(UIStackView(frame: CGRect(x: 30, y: 44, width: viewPhoto.bounds.width - 60, height: 207)))
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
