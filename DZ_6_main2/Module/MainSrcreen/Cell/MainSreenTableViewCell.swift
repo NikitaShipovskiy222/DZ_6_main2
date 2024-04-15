@@ -39,38 +39,14 @@ final class MainScreenItemTableViewCell: UITableViewCell {
         return $0
     }(UILabel(frame: CGRect(x: 20, y: name.frame.maxY + 4, width: itemImage.bounds.width - 25, height: 51)))
     
-     private lazy var itemImageLilView: UIView = {
-        $0.backgroundColor = .background
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-        return $0
-    }(UIView(frame: CGRect(x: 25, y: 192, width: frame.width - 110, height: 99)))
     
-    
-    
-    private lazy var  itemLilRightImage: UIImageView = {
-        $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-        $0.contentMode = .scaleAspectFill
+    private lazy var hStack: UIStackView = {
+        $0.axis = .horizontal
+        $0.spacing = 11
+        $0.distribution = .fillEqually
         return $0
-    }(UIImageView(frame: CGRect(x: 0 , y:0, width: itemImageLilView.bounds.width - 195, height: itemImageLilView.bounds.height)))
+    }(UIStackView(frame: CGRect(x: 25, y: itemImage.frame.maxY + 12, width: itemVie.frame.width - 50 , height: 99)))
     
-    private lazy var itemLilMidImage: UIImageView = {
-        $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-        $0.contentMode = .scaleAspectFill
-        return $0
-    }(UIImageView(frame: CGRect(x: itemLilRightImage.frame.width + 11, y:0, width: itemImageLilView.bounds.width - 195, height: itemImageLilView.bounds.height)))
-
-    private lazy var  itemLilLeftImage: UIImageView = {
-        $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-        $0.contentMode = .scaleAspectFill
-        return $0
-    }(UIImageView(frame: CGRect(x: itemImageLilView.frame.width - 89, y:0, width: itemImageLilView.bounds.width - 195, height: itemImageLilView.bounds.height)))
     
     var complition: (() -> Void)?
     
@@ -85,7 +61,6 @@ final class MainScreenItemTableViewCell: UITableViewCell {
                
    lazy var showAction = UIAction { [weak self] _ in
        guard let self = self else {return}
-       
        self.complition?()
     }
     
@@ -97,24 +72,35 @@ final class MainScreenItemTableViewCell: UITableViewCell {
     
     
     func SetupItem(item: Item){
+        
         itemImage.image = UIImage(named: item.mainImage)
-        itemLilRightImage.image = UIImage(named: item.secondImage)
-        itemLilMidImage.image = UIImage(named: item.thirdImage)
-        itemLilLeftImage.image = UIImage(named: item.fourthImage)
+
+        item.lilImage.forEach{
+            self.hStack.addArrangedSubview(createImage(name: $0))
+        }
+
+        
         name.text = "\(item.name)"
         descript.text = "\(item.description)"
         
-        [itemImageLilView, itemImage, showButton].forEach{
+        [itemImage, showButton, hStack].forEach{
             itemVie.addSubview($0)
         }
-        [itemLilRightImage, itemLilMidImage, itemLilLeftImage].forEach{
-            itemImageLilView.addSubview($0)
-        }
+  
         itemImage.addSubview(descript)
         itemImage.addSubview(name)
         addSubview(itemVie)
     }
     
+    private func createImage (name: String) -> UIImageView {
+        {
+            $0.image = UIImage(named: name)
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 20
+            $0.clipsToBounds = true
+            return $0
+        }(UIImageView())
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

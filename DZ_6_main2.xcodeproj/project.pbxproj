@@ -15,7 +15,6 @@
 		01FD796C2BCBD8E200B2E75A /* MainScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD796B2BCBD8E200B2E75A /* MainScreenData.swift */; };
 		01FD796E2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD796D2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift */; };
 		01FD79772BCBFB3700B2E75A /* DitaelsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD79762BCBFB3700B2E75A /* DitaelsScreenViewController.swift */; };
-		01FD797A2BCC051500B2E75A /* DitaelsScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD79792BCC051500B2E75A /* DitaelsScreenModel.swift */; };
 		01FD797D2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD797C2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		01FD796B2BCBD8E200B2E75A /* MainScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenData.swift; sourceTree = "<group>"; };
 		01FD796D2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSreenTableViewCell.swift; sourceTree = "<group>"; };
 		01FD79762BCBFB3700B2E75A /* DitaelsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitaelsScreenViewController.swift; sourceTree = "<group>"; };
-		01FD79792BCC051500B2E75A /* DitaelsScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitaelsScreenModel.swift; sourceTree = "<group>"; };
 		01FD797C2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitaelsScreenTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				01FD797B2BCC052500B2E75A /* Cell */,
-				01FD79782BCC050200B2E75A /* Model */,
 				01FD79752BCBFABD00B2E75A /* View */,
 			);
 			path = DiteilsScreen;
@@ -133,14 +130,6 @@
 				01FD79762BCBFB3700B2E75A /* DitaelsScreenViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		01FD79782BCC050200B2E75A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				01FD79792BCC051500B2E75A /* DitaelsScreenModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		01FD797B2BCC052500B2E75A /* Cell */ = {
@@ -228,7 +217,6 @@
 				01FD79772BCBFB3700B2E75A /* DitaelsScreenViewController.swift in Sources */,
 				01FD796E2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift in Sources */,
 				01FD79592BCBD86800B2E75A /* SceneDelegate.swift in Sources */,
-				01FD797A2BCC051500B2E75A /* DitaelsScreenModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

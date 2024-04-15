@@ -9,8 +9,8 @@ import UIKit
 
 final class DitaelsScreenViewController: UIViewController {
     
-    
-    private var photos = Photos.mockImage()
+
+var item: Item?
     
    private lazy var photosItem: UITableView = {
         $0.register(DitaelsScreenTableViewCell.self, forCellReuseIdentifier: "photos")
@@ -71,13 +71,12 @@ final class DitaelsScreenViewController: UIViewController {
 
 extension DitaelsScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       3
+        item?.lilImage.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let photoCell = photosItem.dequeueReusableCell(withIdentifier: "photos", for: indexPath) as? DitaelsScreenTableViewCell else {return UITableViewCell()}
-        photoCell.SetupImage(photos: photos[indexPath.row])
-//        
+        photoCell.SetupImage(photo: item?.lilImage ?? [""])
        photoCell.selectionStyle = .none
         return photoCell
     }
@@ -88,6 +87,6 @@ extension DitaelsScreenViewController: UITableViewDataSource {
 extension DitaelsScreenViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.frame.width + 50
+        view.frame.width
     }
 }

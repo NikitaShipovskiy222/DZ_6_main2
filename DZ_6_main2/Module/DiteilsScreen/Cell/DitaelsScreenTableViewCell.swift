@@ -9,32 +9,21 @@ import UIKit
 
 final class DitaelsScreenTableViewCell: UITableViewCell {
     
+    
     private lazy var viewPhoto: UIView = {
         $0.backgroundColor = .red
         $0.clipsToBounds = true
         return $0
     }(UIView(frame: bounds))
     
-   private lazy var imageFirst: UIImageView = {
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-       $0.contentMode = .scaleAspectFill
+    private lazy var vStack: UIStackView = {
+        $0.axis = .vertical
+        $0.alignment = .center
+        $0.spacing = 25
+        $0.distribution = .fill
         return $0
-   }(UIImageView(frame: CGRect(x: 30, y: 40, width: viewPhoto.frame.width - 60, height: viewPhoto.bounds.height - 60)))
-    
- private lazy var imageSecond: UIImageView = {
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-     $0.contentMode = .scaleAspectFill
-        return $0
-    }(UIImageView(frame: CGRect(x: 30, y: imageFirst.frame.maxY + 25, width: frame.width - 60, height: 210)))
-    
-    private lazy var imageThird: UIImageView = {
-        $0.layer.cornerRadius = 20
-        $0.clipsToBounds = true
-        $0.contentMode = .scaleAspectFill
-        return $0
-    }(UIImageView(frame: CGRect(x: 30, y: imageSecond.frame.maxY + 25, width: frame.width - 60, height: 210)))
+    }(UIStackView(frame: CGRect(x: 30, y: 34, width: viewPhoto.bounds.width - 60, height: viewPhoto.bounds.height)))
+
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,17 +31,26 @@ final class DitaelsScreenTableViewCell: UITableViewCell {
     }
     
     
-    func SetupImage(photos: Photos) {
-        imageFirst.image = UIImage(named: "\(photos.images)")
-        imageSecond.image = UIImage(named: "\(photos.images)")
-        imageThird.image = UIImage(named: "\(photos.images)")
+    func SetupImage(photo: [String]) {
         
-        
+        photo.forEach{
+            let img = getImage(name: $0)
+            self.vStack.addArrangedSubview(img)
+        }
+            
+        addSubview(vStack)
         addSubview(viewPhoto)
-        viewPhoto.addSubview(imageFirst)
-        viewPhoto.addSubview(imageSecond)
-        viewPhoto.addSubview(imageThird)
-        
+
+        }
+    
+    
+    private func getImage(name: String) -> UIImageView {
+        {
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 20
+            $0.clipsToBounds = true
+            return $0
+        }(UIImageView())
     }
     
     

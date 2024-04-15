@@ -47,12 +47,13 @@ extension MainScreenViewController: UITableViewDataSource {
         
         
         itemCell.selectionStyle = .none
-        
+        let item = item[indexPath.row]
         itemCell.complition = { [weak self] in
             
             guard let self = self else {return}
             
             let diteilsVC = DitaelsScreenViewController()
+            diteilsVC.item = item
             diteilsVC.mainText = self.item[indexPath.row].name
             diteilsVC.mainImage = self.item[indexPath.row].mainImage
             diteilsVC.discriptText = self.item[indexPath.row].description
