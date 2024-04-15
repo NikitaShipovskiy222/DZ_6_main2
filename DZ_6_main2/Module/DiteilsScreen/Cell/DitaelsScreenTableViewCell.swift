@@ -20,9 +20,9 @@ final class DitaelsScreenTableViewCell: UITableViewCell {
         $0.axis = .vertical
         $0.alignment = .center
         $0.spacing = 25
-        $0.distribution = .fill
+        $0.distribution = .equalCentering
         return $0
-    }(UIStackView(frame: CGRect(x: 30, y: 34, width: viewPhoto.bounds.width - 60, height: viewPhoto.bounds.height)))
+    }(UIStackView(frame: CGRect(x: 30, y: 44, width: viewPhoto.bounds.width - 60, height: 100)))
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -34,18 +34,18 @@ final class DitaelsScreenTableViewCell: UITableViewCell {
     func SetupImage(photo: [String]) {
         
         photo.forEach{
-            let img = getImage(name: $0)
-            self.vStack.addArrangedSubview(img)
+            self.vStack.addArrangedSubview(getImage(name: $0))
         }
-            
-        addSubview(vStack)
+        
         addSubview(viewPhoto)
+        addSubview(vStack)
 
         }
     
     
     private func getImage(name: String) -> UIImageView {
         {
+            $0.image = UIImage(named: name)
             $0.contentMode = .scaleAspectFill
             $0.layer.cornerRadius = 20
             $0.clipsToBounds = true

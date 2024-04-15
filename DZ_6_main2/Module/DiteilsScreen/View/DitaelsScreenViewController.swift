@@ -78,6 +78,7 @@ extension DitaelsScreenViewController: UITableViewDataSource {
         guard let photoCell = photosItem.dequeueReusableCell(withIdentifier: "photos", for: indexPath) as? DitaelsScreenTableViewCell else {return UITableViewCell()}
         photoCell.SetupImage(photo: item?.lilImage ?? [""])
        photoCell.selectionStyle = .none
+        
         return photoCell
     }
     
