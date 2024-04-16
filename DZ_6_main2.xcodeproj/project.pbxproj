@@ -16,6 +16,7 @@
 		01FD796E2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD796D2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift */; };
 		01FD79772BCBFB3700B2E75A /* DitaelsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD79762BCBFB3700B2E75A /* DitaelsScreenViewController.swift */; };
 		01FD797D2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD797C2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift */; };
+		01FD79802BCE478700B2E75A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD797F2BCE478700B2E75A /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		01FD796D2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSreenTableViewCell.swift; sourceTree = "<group>"; };
 		01FD79762BCBFB3700B2E75A /* DitaelsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitaelsScreenViewController.swift; sourceTree = "<group>"; };
 		01FD797C2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitaelsScreenTableViewCell.swift; sourceTree = "<group>"; };
+		01FD797F2BCE478700B2E75A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		01FD796A2BCBD8CE00B2E75A /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				01FD797E2BCE476100B2E75A /* PhotoViewScreen */,
 				01FD79742BCBFA7F00B2E75A /* DiteilsScreen */,
 				01FD79732BCBFA5C00B2E75A /* MainSrcreen */,
 			);
@@ -138,6 +141,22 @@
 				01FD797C2BCC054800B2E75A /* DitaelsScreenTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		01FD797E2BCE476100B2E75A /* PhotoViewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				01FD79812BCE479000B2E75A /* View */,
+			);
+			path = PhotoViewScreen;
+			sourceTree = "<group>";
+		};
+		01FD79812BCE479000B2E75A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01FD797F2BCE478700B2E75A /* PhotoViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +234,7 @@
 				01FD796C2BCBD8E200B2E75A /* MainScreenData.swift in Sources */,
 				01FD79572BCBD86800B2E75A /* AppDelegate.swift in Sources */,
 				01FD79772BCBFB3700B2E75A /* DitaelsScreenViewController.swift in Sources */,
+				01FD79802BCE478700B2E75A /* PhotoViewController.swift in Sources */,
 				01FD796E2BCBD8FD00B2E75A /* MainSreenTableViewCell.swift in Sources */,
 				01FD79592BCBD86800B2E75A /* SceneDelegate.swift in Sources */,
 			);

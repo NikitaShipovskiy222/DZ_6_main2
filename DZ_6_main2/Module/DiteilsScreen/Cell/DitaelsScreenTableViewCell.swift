@@ -10,18 +10,13 @@ import UIKit
 final class DitaelsScreenTableViewCell: UITableViewCell {
     
     
-    private lazy var viewPhoto: UIView = {
+    private lazy var viewPhoto: UIImageView = {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 20
+        $0.contentMode = .scaleAspectFill
         return $0
-    }(UIView(frame: bounds))
+    }(UIImageView(frame: CGRect(x: 30, y: 34, width: frame.width - 60, height: 207)))
     
-    private lazy var vStack: UIStackView = {
-        $0.axis = .vertical
-        $0.alignment = .center
-        $0.spacing = 25
-        $0.distribution = .fillEqually
-        return $0
-    }(UIStackView(frame: CGRect(x: 30, y: 44, width: viewPhoto.bounds.width - 60, height: 207)))
-
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,27 +24,14 @@ final class DitaelsScreenTableViewCell: UITableViewCell {
     }
     
     
-    func SetupImage(photo: [String]) {
-        
-        photo.forEach{
-            self.vStack.addArrangedSubview(getImage(name: $0))
-        }
-        
+    func SetupImage(photo: String) {
         addSubview(viewPhoto)
-        addSubview(vStack)
+
+        viewPhoto.image = UIImage(named: photo)
+        
 
         }
     
-    
-    private func getImage(name: String) -> UIImageView {
-        {
-            $0.image = UIImage(named: name)
-            $0.contentMode = .scaleAspectFill
-            $0.layer.cornerRadius = 20
-            $0.clipsToBounds = true
-            return $0
-        }(UIImageView())
-    }
     
     
     required init?(coder: NSCoder) {

@@ -76,7 +76,7 @@ extension DitaelsScreenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let photoCell = photosItem.dequeueReusableCell(withIdentifier: "photos", for: indexPath) as? DitaelsScreenTableViewCell else {return UITableViewCell()}
-        photoCell.SetupImage(photo: item?.lilImage ?? [""])
+        photoCell.SetupImage(photo: item?.lilImage[indexPath.row] ?? "")
        photoCell.selectionStyle = .none
         
         return photoCell
@@ -88,6 +88,15 @@ extension DitaelsScreenViewController: UITableViewDataSource {
 extension DitaelsScreenViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.frame.width
+        view.frame.width - 150
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let photoVC = PhotoViewController()
+        photoVC.image = self.item?.lilImage[indexPath.row] ?? ""
+        navigationController?.pushViewController(photoVC, animated: true)
+    }
+    
 }
+
